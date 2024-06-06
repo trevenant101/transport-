@@ -4,7 +4,7 @@ import React from "react";
 import { Card, Form, Input } from "antd";
 import truck from "../../assets/images/Truck2.jpg";
 import Footer from "../../assets/components/Footer";
-import ContactCard from "./ContactCard";
+import ContactCard from "./COntactCard";
 import { AwesomeButtonProgress } from "react-awesome-button";
 import { ThreeDCardDemo } from "../../assets/components/ContactCard/Contactcard";
 

@@ -17,7 +17,7 @@ const AboutUs: React.FC = () => {
       <Suspense fallback={<Loading />}>
         <BackgroundBoxesDemo PageName="About Us" />
       </Suspense>
-      <div className="p-6 font-sans">
+      <div className="container mx-auto p-6 font-sans">
         <section className="mb-10 mx-10 flex flex-wrap md:flex-nowrap items-center">
           <div className="md:w-2/3 mb-6">
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
@@ -92,7 +92,7 @@ const AboutUs: React.FC = () => {
 
         <section className="mb-10 mx-10 flex flex-wrap md:flex-nowrap items-center">
           <img src={img1} alt="Logistics" className="w-full md:w-1/3 h-auto mb-4 md:mb-0 rounded-md" />
-          <div className="md:w-2/3">
+          <div className="md:w-2/3 md:ml-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Project & ODC
             </h2>
