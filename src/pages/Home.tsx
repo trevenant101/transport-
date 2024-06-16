@@ -82,7 +82,7 @@ const Home = () => {
               </a>
             </AwesomeButton>
           </div>
-          <div className="mt-5">
+          <div className="mt-5 px-0 md:px-5">
             <BentoGridDemo />
           </div>
         </div>
@@ -90,6 +90,7 @@ const Home = () => {
       <div className="mt-5">
 
         <Footer />
+        
       </div>
     </>
   );
