@@ -71,10 +71,10 @@ const Home = () => {
           </div>
           <div className="flex flex-row space-x-3">
             <AwesomeButton type="twitter" ripple={true} className="w-40 ">
-              <a key="AboutUs" href="/AboutUs ">
+              <Link key="AboutUs" to="/AboutUs ">
                 {" "}
                 Read More
-              </a>
+              </Link>
             </AwesomeButton>
             <AwesomeButton type="youtube" ripple={true} className="w-40">
               <Link key="ContactUs" to="/ContactUs ">

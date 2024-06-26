@@ -1,5 +1,5 @@
 {
-    "rewrites":  [
-      {"source": "/(.*)", "destination": "/App.tsx"}
+    "routes":  [
+      {"src": "/[^.]+", "dist": "/", "status": 200}
     ]
   }
