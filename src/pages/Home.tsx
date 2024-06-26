@@ -7,7 +7,6 @@ import Footer from "../assets/components/Footer";
 import { TypewriterEffectSmoothDemo } from "../assets/components/Typewriter/TypeWriterDemo";
 import { Link } from "react-router-dom";
 
-
 const divStyle = {
   display: "flex",
   alignItems: "center",
@@ -36,7 +35,6 @@ const Home = () => {
     <>
       <div className="overflow-auto">
         <div className="slide-container">
-          
           <Slide indicators infinite>
             {slideImages.map((slideImage, index) => (
               <div key={index}>
@@ -56,7 +54,7 @@ const Home = () => {
         </div>{" "}
         <div className=" mt-6 flex flex-col items-center">
           <div className="flex justify-center ml-[8px] text-6xl text-orange-700">
-            <TypewriterEffectSmoothDemo /> 
+            <TypewriterEffectSmoothDemo />
           </div>
 
           <div className="mt-2 px-10 pb-5 pt-0 md:py-10 sm:px-40 text-xl  border-none">
@@ -70,18 +68,17 @@ const Home = () => {
             perfectly every time.
           </div>
           <div className="flex flex-row space-x-3">
-            <AwesomeButton type="twitter" ripple={true} className="w-40 ">
-              <Link key="AboutUs" to="/AboutUs ">
+            <Link key="AboutUs" to="/AboutUs ">
+              <AwesomeButton type="twitter" ripple={true} className="w-40 ">
                 {" "}
                 Read More
-              </Link>
-            </AwesomeButton>
-            <AwesomeButton type="youtube" ripple={true} className="w-40">
-              <Link key="ContactUs" to="/ContactUs ">
-                {" "}
+              </AwesomeButton>
+            </Link>
+            <Link key="ContactUs" to="/ContactUs ">
+              <AwesomeButton type="youtube" ripple={true} className="w-40">
                 Contact Us
-              </Link>
-            </AwesomeButton>
+              </AwesomeButton>
+            </Link>
           </div>
           <div className="mt-5 px-0 md:px-5">
             <BentoGridDemo />
@@ -89,9 +86,7 @@ const Home = () => {
         </div>
       </div>
       <div className="mt-5">
-
         <Footer />
-        
       </div>
     </>
   );
