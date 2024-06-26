@@ -5,6 +5,7 @@ import { AwesomeButton } from "react-awesome-button";
 import { BentoGridDemo } from "../assets/components/Bento/BentoGrid.Demo";
 import Footer from "../assets/components/Footer";
 import { TypewriterEffectSmoothDemo } from "../assets/components/Typewriter/TypeWriterDemo";
+import { Link } from "react-router-dom";
 
 
 const divStyle = {
@@ -76,10 +77,10 @@ const Home = () => {
               </a>
             </AwesomeButton>
             <AwesomeButton type="youtube" ripple={true} className="w-40">
-              <a key="ContactUs" href="/ContactUs ">
+              <Link key="ContactUs" to="/ContactUs ">
                 {" "}
                 Contact Us
-              </a>
+              </Link>
             </AwesomeButton>
           </div>
           <div className="mt-5 px-0 md:px-5">
