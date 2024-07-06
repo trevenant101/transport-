@@ -51,12 +51,19 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        <section className="mb-10 flex flex-col md:flex-row items-center">
-          <div className="md:w-2/3">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Key Features
-            </h2>
-            <ul className="list-disc list-inside text-gray-600">
+        <section className="mb-10 flex flex-col-reverse md:flex-row items-center">
+          <div className="md:w-1/3 md:mr-6 mb-6 md:mb-0">
+            <img
+              src={Checklist}
+              alt="Checklist"
+              className="w-full h-auto rounded-md"
+            />
+          </div>
+          <div className="relative md:left-[31em]">
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">
+              Key <span className="text-blue-700">Features</span>
+            </h1>
+            <ul className="list-disc list-inside text-gray-600 ">
               <li className="mb-2">Time-bound Delivery</li>
               <li className="mb-2">Specialized Container Movement</li>
               <li className="mb-2">
@@ -70,19 +77,14 @@ const AboutUs: React.FC = () => {
               </li>
               <li>Frequent Tracking Alerts if Required through Mail or SMS</li>
             </ul>
-            <div className="md:w-1/3 md:mr-6 mb-6 md:mb-0">
-              <img
-                src={Checklist}
-                alt="Checklist"
-                className="w-full h-auto rounded-md"
-              />
-            </div>
           </div>
         </section>
 
         <section className="mb-10 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 md:mr-6 mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Service</h2>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+              Services <span className="text-blue-700">Offered </span>
+            </h1>
             <p className="text-gray-600 mb-4">
               Vishwakarma Transport operates a large fleet of trucks, trailers,
               and ancillary vehicles ensuring safe delivery. With regional
@@ -102,13 +104,20 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        <section className="mb-10 flex flex-col md:flex-row items-center">
+        <section className="mb-10 flex flex-col-reverse md:flex-row items-center">
+          <div className="md:w-1/3 md:ml-6 mb-6 md:mb-0">
+            <img
+              src={img1}
+              alt="Logistics"
+              className="w-full h-auto rounded-md"
+            />
+          </div>
           <div className="md:w-2/3 md:ml-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Project & ODC
-            </h2>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+              Project & <span className="text-blue-700">ODC</span>
+            </h1>
             <ul className="list-disc list-inside text-gray-600">
-              <li className="mb-4">
+              
                 Vishwakarma Transport offers services for the movement of ODC
                 and Projects across the country. Features include:
                 <ul className="list-disc list-inside ml-6 mt-2">
@@ -131,13 +140,8 @@ const AboutUs: React.FC = () => {
                     consignments.
                   </li>
                 </ul>
-              </li>
+             
             </ul>
-            <img
-              src={img1}
-              alt="Logistics"
-              className="w-full md:w-1/3 h-auto rounded-md mb-6 md:mb-0"
-            />
           </div>
         </section>
       </div>

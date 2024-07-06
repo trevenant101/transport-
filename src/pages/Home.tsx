@@ -11,21 +11,21 @@ const divStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  backgroundSize: "contain", // Changed from 'cover' to 'contain'
+  backgroundSize: "cover", // Changed from 'cover' to 'contain'
   backgroundPosition: "center", // Center the background image
   height: "400px",
 };
 const slideImages = [
   {
-    url: `${truck1}`,
+    url: `https://www.transportation.gov/sites/dot.gov/files/pictures/Rural%20Truck-edited.png`,
     caption: "Heavy Transport Specialist",
   },
   {
-    url: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
+    url: "https://www.esspl.com/wp-content/uploads/2019/10/tms-thegem-blog-default.jpg",
     caption: "Slide 2",
   },
   {
-    url: "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+    url: "https://www.transportation.gov/sites/dot.gov/files/pictures/Rural%20Truck-edited.png",
     caption: "Slide 3",
   },
 ];
@@ -58,14 +58,15 @@ const Home = () => {
           </div>
 
           <div className="mt-2 px-10 pb-5 pt-0 md:py-10 sm:px-40 text-xl  border-none">
-            Index Vishwakarma Transport is a successful Vadodara-based heavy
-            goods transport company. Mr. VIKRAM SHARMA who has experience in
-            this field since 2005. Our main focus is on transporting Oversized
-            and Heavy Cargo (ODC, Oversized Cargo) across India. Our trained and
-            knowledgeable staff working with a large number of vehicles,
-            including low-bed trailers, high-bed trailers, ODC consignments, and
-            the latest equipment and machinery, ensure that the job is done
-            perfectly every time.
+            Index Krishna Freight Carriers is a successful Bhilwara based Goods
+            Transport Company. Mr Krishna Kumar Bansal who has a experience In
+            this field since 2001. Our main focus is on transporting Heavy Load
+            Trailor Services and Oversized Cargo Services and also provide small
+            10 MT truck and Heavy Goods (ODC) across all over India. Our trained
+            and knowledgeable staff working with a large numbers of vehicles
+            including Low Bed Trailor, High Bed Trailor, ODC Consignment and the
+            latest Equipment and Machinery and mainly ensure that the job done
+            perfectly over the period of time.
           </div>
           <div className="flex flex-row space-x-3">
             <Link key="AboutUs" to="/AboutUs ">
@@ -80,7 +81,7 @@ const Home = () => {
               </AwesomeButton>
             </Link>
           </div>
-          <div className="mt-5 px-0 md:px-5">
+          <div className="mt-5 px-2 md:px-5">
             <BentoGridDemo />
           </div>
         </div>
