@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Drawer, Form, Input, notification } from "antd";
 import emailjs from "emailjs-com";
-import Bansal from "../assets/images/bansal-transports-high-resolution-logo-black-transparent (1).png";
+import Bansal from "../assets/images/Bansal Roadways_transparent.png";
+import Bansal_Mobile from "../assets/images/Bansal Roadways_Mobile.png";
 import { AwesomeButton, AwesomeButtonProgress } from "react-awesome-button";
 import { FiAlertCircle, FiMenu } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
@@ -205,8 +206,9 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
         </AnimatePresence>
 
         <div className="flex items-center">
-          <img src={Bansal} className="h-10 w-80" alt="Logo" />
-        </div>
+        <img src={Bansal} className="hidden md:block h-10 w-80" alt="Logo" />
+        <img src={Bansal_Mobile} className="block md:hidden h-15 w-28" alt="Mobile Logo" />
+      </div>
 
         <div className="hidden md:flex space-x-4">
           {links.map((link) => (
