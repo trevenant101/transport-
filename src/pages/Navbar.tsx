@@ -178,7 +178,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                               type="primary"
                               size="large"
                               disabled={!allFieldsFilled}
-                              resultLabel={!allFieldsFilled?"Error":"Success"}
+                              resultLabel={!allFieldsFilled?"Error!":"Success"}
                               loadingLabel = 'Sending...'
                               releaseDelay = {50}
                               onPress={async (element, next) => {
@@ -187,7 +187,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                                   onFinish(values, next);
                                 } catch (errorInfo) {
                                   console.log('Validation Failed:', errorInfo);
-                                  next(false); // Show error state
+                                  next(); // Show error state
                                 }
                               }}
                             >

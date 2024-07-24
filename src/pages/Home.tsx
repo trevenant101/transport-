@@ -58,7 +58,7 @@ const Home = () => {
           </div>
 
           <div className="mt-2 px-10 pb-5 pt-0 md:py-10 sm:px-40 text-xl  border-none">
-            Index Krishna Freight Carriers is a successful Bhilwara based Goods
+            Krishna Freight Carriers is a successful Bhilwara based Goods
             Transport Company. Mr Krishna Kumar Bansal who has a experience In
             this field since 2001. Our main focus is on transporting Heavy Load
             Trailor Services and Oversized Cargo Services and also provide small
