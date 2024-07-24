@@ -17,7 +17,7 @@ const divStyle = {
 };
 const slideImages = [
   {
-    url: `https://www.transportation.gov/sites/dot.gov/files/pictures/Rural%20Truck-edited.png`,
+    url: `https://media.istockphoto.com/id/472109275/photo/beautiful-landscape-in-norther-part-of-india.jpg?s=2048x2048&w=is&k=20&c=h4QiiiQeeZ8EGlpJt45j5MfFK1Fx3HI7X7kYJaFkOrE=`,
     caption: "Heavy Transport Specialist",
   },
   {
@@ -69,17 +69,17 @@ const Home = () => {
             perfectly over the period of time.
           </div>
           <div className="flex flex-row space-x-3">
-            <Link key="AboutUs" to="/AboutUs ">
+            <a key="AboutUs" href="/AboutUs ">
               <AwesomeButton type="twitter" ripple={true} className="w-40 ">
                 {" "}
                 Read More
               </AwesomeButton>
-            </Link>
-            <Link key="ContactUs" to="/ContactUs ">
+            </a>
+            <a key="ContactUs" href="/ContactUs ">
               <AwesomeButton type="youtube" ripple={true} className="w-40">
                 Contact Us
               </AwesomeButton>
-            </Link>
+            </a>
           </div>
           <div className="mt-5 px-2 md:px-5">
             <BentoGridDemo />

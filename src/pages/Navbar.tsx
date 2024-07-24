@@ -260,7 +260,6 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
               </AwesomeButton>
             </div>
           )}
-          <FloatingWhatsApp phoneNumber="6350345640" accountName="Naman" />
         </Drawer>
       </div>
     </>

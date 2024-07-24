@@ -8,8 +8,9 @@ interface BoxesCoreProps {
 }
 
 const BoxesCore: React.FC<BoxesCoreProps> = ({ className, ...rest }) => {
-  const rows = useMemo(() => new Array(75).fill(1), []); // Reduce the number of rows
-  const cols = useMemo(() => new Array(50).fill(1), []); // Reduce the number of columns
+  const isMobile = window.innerWidth <= 768;
+  const rows = useMemo(() => new Array(isMobile ? 25 : 100).fill(1), [isMobile]); // Adjust number of rows based on screen size
+  const cols = useMemo(() => new Array(isMobile ? 30 : 100).fill(1), [isMobile]); // Adjust number of columns based on screen size
   const colors = useMemo(
     () => [
       "--sky-300",
@@ -33,7 +34,7 @@ const BoxesCore: React.FC<BoxesCoreProps> = ({ className, ...rest }) => {
         transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
       }}
       className={cn(
-        "absolute left-1/4 p-4 -top-1/4 flex  -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 ",
+        "absolute left-1/4 p-4 -top-1/4 flex -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 ",
         className
       )}
       {...rest}
@@ -41,7 +42,7 @@ const BoxesCore: React.FC<BoxesCoreProps> = ({ className, ...rest }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="w-16 h-8  border-l  border-slate-700 relative"
+          className="w-12 h-6 border-l border-slate-700 relative"
         >
           {cols.map((_, j) => (
             <motion.div
@@ -50,7 +51,7 @@ const BoxesCore: React.FC<BoxesCoreProps> = ({ className, ...rest }) => {
                 transition: { duration: 0 },
               }}
               key={`col` + j}
-              className="w-16 h-8  border-r border-t border-slate-700 relative"
+              className="w-12 h-6 border-r border-t border-slate-700 relative"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
@@ -59,7 +60,7 @@ const BoxesCore: React.FC<BoxesCoreProps> = ({ className, ...rest }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-slate-700 stroke-[1px] pointer-events-none"
+                  className="absolute h-4 w-8 -top-[10px] -left-[16px] text-slate-700 stroke-[1px] pointer-events-none"
                 >
                   <path
                     strokeLinecap="round"

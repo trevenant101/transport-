@@ -3,6 +3,7 @@ import "react-awesome-button/dist/styles.css";
 import { AwesomeButton } from "react-awesome-button";
 import { FaFacebook, FaTwitter, FaWhatsapp } from "react-icons/fa6";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
+import test from "../images/Bansal Roadways_Mobile.png";
 
 const Footer: React.FC = () => {
 
@@ -54,7 +55,7 @@ const Footer: React.FC = () => {
           </li>
 
           <li>
-          <FloatingWhatsApp phoneNumber="6350345640" accountName="Naman"  />
+          <FloatingWhatsApp phoneNumber="6350345640" accountName="Naman" avatar={test} notification={false}   />
 
             <a href="/ContactUs" className="text-blue-500 hover:underline">
               Contacts
