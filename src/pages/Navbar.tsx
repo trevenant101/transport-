@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Drawer, Form, Input } from "antd";
+import { Drawer, Form, Input, notification } from "antd";
+import emailjs from "emailjs-com";
 import Bansal from "../assets/images/bansal-transports-high-resolution-logo-black-transparent (1).png";
-import { AwesomeButton } from "react-awesome-button";
+import { AwesomeButton, AwesomeButtonProgress } from "react-awesome-button";
 import { FiAlertCircle, FiMenu } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { FloatingWhatsApp } from "react-floating-whatsapp";
+import "react-awesome-button/dist/styles.css";
 
 interface NavbarProps {
   links: { name: string; path: string }[];
@@ -16,6 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
   const [activeTab, setActiveTab] = useState<string>(location.pathname);
   const [visible, setVisible] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [form] = Form.useForm();
 
   const NavClick = (link: string) => {
     setActiveTab(link);
@@ -35,10 +38,43 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
     setVisible(false);
   };
 
+  const sendEmail = (values: any) => {
+    return emailjs.send(
+      "service_lpyuq89",
+      "template_drcmoya",
+      values,
+      "e0jnCqVUt0x05ZcYk"
+    );
+  };
+
+  const onFinish = (values: any, next: any): void => {
+    sendEmail(values).then(
+      (response) => {
+        notification.success({
+          message: "Success",
+          description: "Your message has been sent successfully!",
+        });
+        next(true); // Proceed to success state
+        setShowModal(false);
+      },
+      (error) => {
+        notification.error({
+          message: "Error",
+          description: "There was an error sending your message.",
+        });
+        next(false); // Proceed to error state
+      }
+    );
+  };
+
+  const onValuesChange = () => {
+    const values = form.getFieldsValue();
+    const allFieldsFilled = Object.keys(values).every((key) => values[key]);
+    form.setFieldsValue({ allFieldsFilled });
+  };
+
   return (
     <>
-      
-
       <div className="flex justify-between items-center p-4 bg-[#a4a5ff]">
         <AnimatePresence>
           {showModal && (
@@ -64,7 +100,12 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                   <h3 className="text-3xl font-bold text-center mb-2">
                     Request a quote
                   </h3>
-                  <Form layout="vertical">
+                  <Form
+                    form={form}
+                    layout="vertical"
+                    onValuesChange={onValuesChange}
+                    onFinish={(values) => console.log(values)}
+                  >
                     <Form.Item
                       label="First Name"
                       name="name"
@@ -106,33 +147,57 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                     >
                       <Input />
                     </Form.Item>
-                    <Form.Item
-                      label="Phone Number"
-                      name="phoneNumber"
+                    <Form.Item 
+                      label="Message" 
+                      name="message"
                       rules={[
                         {
                           required: true,
-                          message: "Please enter the phone number",
+                          message: "Please enter the message",
                         },
                       ]}
                     >
                       <Input />
                     </Form.Item>
+                    <div className="flex justify-end gap-2">
+                      <AwesomeButton
+                        onPress={() => setShowModal(false)}
+                        type="secondary"
+                        size="large"
+                      >
+                        Cancel
+                      </AwesomeButton>
+                      <Form.Item shouldUpdate>
+                        {({ getFieldsValue, validateFields }) => {
+                          const values = getFieldsValue();
+                          const allFieldsFilled = Object.keys(values).every(
+                            (key) => values[key]
+                          );
+                          return (
+                            <AwesomeButtonProgress
+                              type="primary"
+                              size="large"
+                              disabled={!allFieldsFilled}
+                              resultLabel={!allFieldsFilled?"Error":"Success"}
+                              loadingLabel = 'Sending...'
+                              releaseDelay = {50}
+                              onPress={async (element, next) => {
+                                try {
+                                  await validateFields();
+                                  onFinish(values, next);
+                                } catch (errorInfo) {
+                                  console.log('Validation Failed:', errorInfo);
+                                  next(false); // Show error state
+                                }
+                              }}
+                            >
+                              Send
+                            </AwesomeButtonProgress>
+                          );
+                        }}
+                      </Form.Item>
+                    </div>
                   </Form>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setShowModal(false)}
-                      className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      onClick={() => setShowModal(false)}
-                      className="bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-full py-2 rounded"
-                    >
-                      Submit
-                    </button>
-                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -188,11 +253,12 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                   {link.name}
                 </Link>
               ))}
-              <AwesomeButton onPress={RequestModal}>REQUEST QUOTE</AwesomeButton>
+              <AwesomeButton onPress={RequestModal}>
+                REQUEST QUOTE
+              </AwesomeButton>
             </div>
           )}
-                <FloatingWhatsApp phoneNumber="6350345640" accountName="Naman" />
-
+          <FloatingWhatsApp phoneNumber="6350345640" accountName="Naman" />
         </Drawer>
       </div>
     </>

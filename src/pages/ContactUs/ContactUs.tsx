@@ -1,33 +1,53 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { Card, Form, Input } from "antd";
+import { Card, Form, Input, notification } from "antd";
 import truck from "../../assets/images/Truck2.jpg";
 import Footer from "../../assets/components/Footer";
 import ContactCard from "./COntactCard";
 import { AwesomeButtonProgress } from "react-awesome-button";
-import { ThreeDCardDemo } from "../../assets/components/ContactCard/Contactcard";
+import emailjs from "emailjs-com";
+import "react-awesome-button/dist/styles.css";
 
 const ContactUs: React.FC = () => {
-  const onFinish = (values: any): void => {
-    console.log("Received values:", values);
+  const sendEmail = (values: any) => {
+    return emailjs.send('service_lpyuq89', 'template_drcmoya', values, 'e0jnCqVUt0x05ZcYk');
+  };
+
+  const onFinish = (values: any, next: any): void => {
+    sendEmail(values).then(
+      (response) => {
+        notification.success({
+          message: 'Success',
+          description: 'Your message has been sent successfully!',
+        });
+        next(); // Proceed to success state
+      },
+      (error) => {
+        notification.error({
+          message: 'Error',
+          description: 'There was an error sending your message.',
+        });
+        next(false, 'Error'); // Proceed to error state
+      }
+    );
   };
 
   return (
     <>
       <section
-        className="contact_us  py-12 bg-cover bg-center "
+        className="contact_us py-12 bg-cover bg-center"
         style={{
           backgroundImage: `url(${truck})`,
           backdropFilter: "blur(100px)",
         }}
       >
         <div className="container mx-auto flex justify-center items-center shadow-2xl">
-          <Card className="bg-gradient-to-br from-indigo-200 to-violet-200 opacity-[0.95]  md:p-12 rounded-lg shadow-lg w-full  lg:w-11/12">
+          <Card className="bg-gradient-to-br from-indigo-200 to-violet-200 opacity-[0.95] md:p-12 rounded-lg shadow-lg w-full lg:w-11/12">
             <div className="flex flex-col md:flex-row">
               <div className="w-full md:w-2/3 md:pr-8">
                 <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
-                <Form name="contactForm" onFinish={onFinish} layout="vertical">
+                <Form name="contactForm" onFinish={(values) => console.log(values)} layout="vertical">
                   <Form.Item
                     name="name"
                     label="Name"
@@ -55,33 +75,21 @@ const ContactUs: React.FC = () => {
                   >
                     <Input.TextArea className="rounded-md" />
                   </Form.Item>
-                  <Form.Item>
-                    <AwesomeButtonProgress
-                      type="facebook"
-                      onPress={(event, release) => {
-                        // do a sync/async task then call `release()`
-                      }}
-                    >
-                      Send
-                    </AwesomeButtonProgress>
+                  <Form.Item shouldUpdate>
+                    {({ getFieldsValue }) => (
+                      <AwesomeButtonProgress
+                        type="primary"
+                        size="large"
+                        onPress={(element, next) => onFinish(getFieldsValue(), next)}
+                      >
+                        Send
+                      </AwesomeButtonProgress>
+                    )}
                   </Form.Item>
                 </Form>
               </div>
-              <div className="w-full sm:mr-5  md:w-1/3 mt-8 md:mt-0">
-                {/* <Card className="bg-gray-100 p-4 rounded-lg shadow-md">
-                  <h4 className="text-xl font-semibold mb-4">Contact Information</h4>
-                  <p className="text-base mb-2">
-                    <strong>Phone:</strong> +91 8009 054294
-                  </p>
-                  <p className="text-base mb-2">
-                    <strong>Email:</strong> info@flightmantra.com
-                  </p>
-                  <p className="text-base">
-                    <strong>Address:</strong> 1000+ Travel partners and 65+ Service city across India, USA, Canada & UAE
-                  </p>
-                </Card> */}
-                {/* <ThreeDCardDemo /> */}
-                <ContactCard/>
+              <div className="w-full sm:mr-5 md:w-1/3 mt-8 md:mt-0">
+                <ContactCard />
               </div>
             </div>
           </Card>
@@ -91,10 +99,7 @@ const ContactUs: React.FC = () => {
       <section className="map_sec bg-gray-200 py-12">
         <div className="container mx-auto">
           <div className="map_inner text-center">
-            <h4 className="text-3xl font-semibold mb-4">
-              Find Us on Google Map
-            </h4>
-           
+            <h4 className="text-3xl font-semibold mb-4">Find Us on Google Map</h4>
             <div className="map_bind rounded-lg overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.549462228537!2d74.62736391459237!3d25.34829198380492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c82c20cbe73b7%3A0xd1545fb8a931b25b!2sBhilwara%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1644607480500"
