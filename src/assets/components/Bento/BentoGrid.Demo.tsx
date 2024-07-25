@@ -10,7 +10,14 @@ import {
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
-import truck from "../../images/Truck1.jpg";
+import truck from "../../images/trucks/Road_transportation_truck.webp";
+import truck1 from "../../images/trucks/Truck1.jpeg";
+import truck2 from "../../images/trucks/low_bed_truck.jpg";
+import truck3 from "../../images/trucks/high-bed-trailor.jpg";
+import truck4 from "../../images/trucks/flat_bed.webp";
+import truck5 from "../../images/trucks/full-load-truck.webp";
+import truck6 from "../../images/trucks/truck-cargo.webp";
+import { FaTruck } from "react-icons/fa6";
 
 export function BentoGridDemo() {
   return (
@@ -19,10 +26,13 @@ export function BentoGridDemo() {
         <BentoGridItem
           key={i}
           title={item.title}
-          description={item.description}
           header={item.header}
           icon={item.icon}
-          className={i === 3 || i === 6 ? "md:col-span-2 hover:scale-105" : "hover:scale-105" }
+          className={
+            i === 3 || i === 6
+              ? "md:col-span-2 hover:scale-105"
+              : "hover:scale-105"
+          }
         />
       ))}
     </BentoGrid>
@@ -32,50 +42,37 @@ export function BentoGridDemo() {
 const items = [
   {
     title: "Road Transportation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
-    header: <img src={truck} className="h-40 w-80" />,
-    icon: (
-      <IconClipboardCopy
-        className="h-4 w-4 text-neutral-500 bg-[]"
-        
-      />
-    ),
+    header: <img src={truck} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500 bg-[]" />,
   },
   {
     title: "ODC Transportation",
-    description: "Dive into the transformative power of technology.",
-    header: <img src={truck} className="h-40 w-full" />,
-    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    header: <img src={truck1} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Low Bed Trailer",
-    description: "Discover the beauty of thoughtful and functional design.",
-    header: <img src={truck} className="h-40 w-full" />,
-    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+    header: <img src={truck2} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "High Bed Trailer",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: <img src={truck} className="h-40 w-full" />,
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    header: <img src={truck3} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Flat Bed Trailers",
-    description: "Join the quest for understanding and enlightenment.",
-    header: <img src={truck} className="h-40 w-full" />,
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+    header: <img src={truck4} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Full Truck Load",
-    description: "Experience the thrill of bringing ideas to life.",
-    header: <img src={truck} className="h-40 w-full" />,
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    header: <img src={truck5} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "The Spirit of Adventure",
-    description: "Embark on exciting journeys and thrilling discoveries.",
-    header: <img src={truck} className="h-40 w-full" />,
-    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+    title: "Cargo Services",
+    header: <img src={truck6} className="h-40 w-full" />,
+    icon: <FaTruck className="h-4 w-4 text-neutral-500" />,
   },
 ];

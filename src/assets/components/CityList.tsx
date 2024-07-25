@@ -58,8 +58,8 @@ const CityList: React.FC = () => {
   return (
     <>
       <div className="flex justify-center">
-        <div className="text-wrap text-xl mx-6 md:mx-0 font-bold">
-          We provide ODC transportation services from Vadodara and several major cities to All Over India. The list of cities where we provide our services is as follows:
+        <div className="text-wrap text-xl mx-6 md:mx-4 font-bold">
+          We provide ODC transportation services from Bhilwara and several major cities to All Over India. The list of cities where we provide our services is as follows:
         </div>
       </div>
       <div className="container grid mx-auto p-4 font-sans">

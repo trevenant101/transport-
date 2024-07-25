@@ -6,16 +6,14 @@ import { FloatingWhatsApp } from "react-floating-whatsapp";
 import test from "../images/Bansal Roadways_Mobile.png";
 
 const Footer: React.FC = () => {
-
-  
   return (
     <footer className="bg-gray-100 p-6 flex flex-wrap justify-between ">
       <div className="w-full md:w-1/4 mb-6 md:mb-0">
         <h2 className="text-lg font-semibold mb-2">About Us</h2>
         <p className="text-sm">
-          Bansal Transport is an accomplished Heavy Transport company based out
-          of Vadodara. Mr. Sanjay Sharma, having experience in the field since
-          2005.
+          Krishna Freight Carriers is an accomplished Transport Company based
+          out of Bhilwara (Rajasthan). Mr Krishna Kumar Bansal having and
+          experience in the field since 2001.
         </p>
       </div>
       <div className="w-full md:w-1/5 mb-6  md:mb-0 ml-[.25rem] sm:ml-0">
@@ -45,7 +43,7 @@ const Footer: React.FC = () => {
           </li>
           <li>
             <a href="/AboutUs" className="text-blue-500 hover:underline">
-              About us
+              About Us
             </a>
           </li>
           <li>
@@ -55,10 +53,15 @@ const Footer: React.FC = () => {
           </li>
 
           <li>
-          <FloatingWhatsApp phoneNumber="6350345640" accountName="Naman" avatar={test} notification={false}   />
+            <FloatingWhatsApp
+              phoneNumber="7073755815"
+              accountName="Krishna Freight Carrier "
+              avatar={test}
+              notification={false}
+            />
 
             <a href="/ContactUs" className="text-blue-500 hover:underline">
-              Contacts
+              Contact Us
             </a>
           </li>
         </ul>
@@ -66,13 +69,13 @@ const Footer: React.FC = () => {
       <div className="w-full md:w-1/4 mb-6 md:mb-0">
         <h2 className="text-lg font-semibold mb-2">Get In Touch</h2>
         <address className="not-italic text-sm mb-2">
-          31-A, Second Floor, Abhishek Complex, Vadsar Road,
+          Opposite Truck Union Office
           <br />
-          Nr Bank of Baroda, Makarpura GIDC, Vadodara, Gujarat
+          Transport Nagar , Bhilwara , Rajasthan(311001)
         </address>
-        <p className="text-sm">+91 9376842606</p>
-        <p className="text-sm">+91 9510948083</p>
-        <p className="text-sm">+91 8200983494</p>
+        <p className="text-sm">+91 9352632742</p>
+        <p className="text-sm">+91 9352112742</p>
+        <p className="text-sm">+91 7073755815</p>
         <p className="text-sm">
           <a
             href="mailto:vishwakarmatransport01@gmail.com"

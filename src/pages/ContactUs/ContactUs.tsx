@@ -1,36 +1,46 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useState } from "react";
 import { Card, Form, Input, notification } from "antd";
 import truck from "../../assets/images/Truck2.jpg";
 import Footer from "../../assets/components/Footer";
-import ContactCard from "./COntactCard";
 import { AwesomeButtonProgress } from "react-awesome-button";
 import emailjs from "emailjs-com";
 import "react-awesome-button/dist/styles.css";
+import ContactCard from "./ContactCard";
 
 const ContactUs: React.FC = () => {
+  const [isSending, setIsSending] = useState(false);
+  const [form] = Form.useForm(); // Form instance reference
+
   const sendEmail = (values: any) => {
     return emailjs.send('service_lpyuq89', 'template_drcmoya', values, 'e0jnCqVUt0x05ZcYk');
   };
 
-  const onFinish = (values: any, next: any): void => {
+  const handleSendEmail = (values: any, next: (success: boolean) => void): void => {
+    if (isSending) return; // Prevent sending if already in progress
+
+    setIsSending(true);
+
     sendEmail(values).then(
-      (response) => {
+      () => {
         notification.success({
           message: 'Success',
           description: 'Your message has been sent successfully!',
         });
-        next(); // Proceed to success state
+        next(true); // Indicate success
       },
-      (error) => {
+      () => {
         notification.error({
           message: 'Error',
           description: 'There was an error sending your message.',
         });
-        next(false, 'Error'); // Proceed to error state
+        next(false); // Indicate failure
       }
-    );
+    ).finally(() => {
+      setIsSending(false);
+      form.resetFields(); // Clear the form fields
+    });
   };
 
   return (
@@ -47,7 +57,7 @@ const ContactUs: React.FC = () => {
             <div className="flex flex-col md:flex-row">
               <div className="w-full md:w-2/3 md:pr-8">
                 <h3 className="text-2xl font-semibold mb-4">Contact Us</h3>
-                <Form name="contactForm" onFinish={(values) => console.log(values)} layout="vertical">
+                <Form name="contactForm" form={form} layout="vertical">
                   <Form.Item
                     name="name"
                     label="Name"
@@ -62,6 +72,7 @@ const ContactUs: React.FC = () => {
                     label="Email"
                     rules={[
                       { required: true, message: "Please input your email!" },
+                      { type: 'email', message: 'The input is not a valid email!' },
                     ]}
                   >
                     <Input className="rounded-md" />
@@ -76,15 +87,32 @@ const ContactUs: React.FC = () => {
                     <Input.TextArea className="rounded-md" />
                   </Form.Item>
                   <Form.Item shouldUpdate>
-                    {({ getFieldsValue }) => (
-                      <AwesomeButtonProgress
-                        type="primary"
-                        size="large"
-                        onPress={(element, next) => onFinish(getFieldsValue(), next)}
-                      >
-                        Send
-                      </AwesomeButtonProgress>
-                    )}
+                    {({ getFieldsValue, validateFields }) => {
+                      const values = getFieldsValue();
+                      const allFieldsFilled = Object.keys(values).every(
+                        (key) => values[key]
+                      );
+                      return (
+                        <AwesomeButtonProgress
+                          type="primary"
+                          size="large"
+                          disabled={!allFieldsFilled || isSending}
+                          resultLabel={!allFieldsFilled ? "Error!" : "Success"}
+                          loadingLabel={"Sending..."}
+                          onPress={async (element, next) => {
+                            try {
+                              await validateFields();
+                              handleSendEmail(values, next);
+                            } catch (errorInfo) {
+                              console.log('Validation Failed:', errorInfo);
+                              handleSendEmail(null, next); // Show error state
+                            }
+                          }}
+                        >
+                          Send
+                        </AwesomeButtonProgress>
+                      );
+                    }}
                   </Form.Item>
                 </Form>
               </div>

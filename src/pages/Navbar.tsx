@@ -148,8 +148,8 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                     >
                       <Input />
                     </Form.Item>
-                    <Form.Item 
-                      label="Message" 
+                    <Form.Item
+                      label="Message"
                       name="message"
                       rules={[
                         {
@@ -179,16 +179,18 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
                               type="primary"
                               size="large"
                               disabled={!allFieldsFilled}
-                              resultLabel={!allFieldsFilled?"Error!":"Success"}
-                              loadingLabel = 'Sending...'
-                              releaseDelay = {50}
+                              resultLabel={
+                                !allFieldsFilled ? "Error!" : "Success"
+                              }
+                              loadingLabel="Sending..."
+                              releaseDelay={0}
                               onPress={async (element, next) => {
                                 try {
                                   await validateFields();
                                   onFinish(values, next);
                                 } catch (errorInfo) {
-                                  console.log('Validation Failed:', errorInfo);
-                                  next(); // Show error state
+                                  console.log("Validation Failed:", errorInfo);
+                                  onFinish(null, next); // Show error state
                                 }
                               }}
                             >
@@ -206,9 +208,21 @@ const Navbar: React.FC<NavbarProps> = ({ links }) => {
         </AnimatePresence>
 
         <div className="flex items-center">
-        <img src={Bansal} className="hidden md:block h-10 w-80" alt="Logo" />
-        <img src={Bansal_Mobile} className="block md:hidden h-15 w-28" alt="Mobile Logo" />
-      </div>
+          <a href="/">
+            <img
+              src={Bansal}
+              className="hidden md:block h-10 w-80"
+              alt="Logo"
+            />
+          </a>
+          <a href="/">
+            <img
+              src={Bansal_Mobile}
+              className="block md:hidden h-15 w-28"
+              alt="Mobile Logo"
+            />
+          </a>
+        </div>
 
         <div className="hidden md:flex space-x-4">
           {links.map((link) => (

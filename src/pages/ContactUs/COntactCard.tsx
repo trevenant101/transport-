@@ -73,10 +73,10 @@ const TiltCard = () => {
         <div className="px-4">
           <h4 className="text-xl font-semibold mb-4">Contact Information</h4>
           <p className="text-base mb-2">
-            <strong>Phone:</strong> +91 8009 054294
+            <strong>Phone:</strong> +91 7073755815
           </p>
           <p className="text-base mb-2">
-            <strong>Email:</strong> info@flightmantra.com
+            <strong>Email:</strong> bansalroadways1@gmail.com
           </p>
           <p className="text-base">
             <strong>Address:</strong> 1000+ Travel partners and 65+ Service city

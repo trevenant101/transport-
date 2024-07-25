@@ -21,12 +21,14 @@ const AboutUs: React.FC = () => {
         <section className="mb-10 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 md:mr-6 mb-6 md:mb-0">
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
-              About <span className="text-blue-700">Vishwakarma Transport</span>
+              About{" "}
+              <span className="text-blue-700">Krishna Freight Carrier</span>
             </h1>
             <p className="text-gray-600 mb-4">
-              Vishwakarma Transport was established in 2005 by Mr. Sanjay Sharma
-              with many years of experience in the Logistics Industry and a
-              passionate belief in transforming lives through transportation.
+              Krishna Freight Carrier was established in 2001 by Mr. Krishna
+              Kumar Bansal with many years of experience in the Logistics
+              Industry and a passionate belief in transforming lives through
+              transportation.
             </p>
             <p className="text-gray-600 mb-4">
               Our registered office and branches across India are equipped with
@@ -35,7 +37,7 @@ const AboutUs: React.FC = () => {
               charges for quick and timely delivery.
             </p>
             <p className="text-gray-600">
-              Vishwakarma Transport is committed to serving customers by
+              Krishna Freight Carrier is committed to serving customers by
               offering complete transport services. We use a computerized
               monitoring system to track our fleet, ensuring efficiency and
               timely delivery. Our business philosophy revolves around customer
@@ -82,16 +84,16 @@ const AboutUs: React.FC = () => {
 
         <section className="mb-10 flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 md:mr-6 mb-6 md:mb-0">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">
               Services <span className="text-blue-700">Offered </span>
             </h1>
             <p className="text-gray-600 mb-4">
-              Vishwakarma Transport operates a large fleet of trucks, trailers,
-              and ancillary vehicles ensuring safe delivery. With regional
-              offices across India, we offer affordable prices and excellent
-              service 24/7. We coordinate with you to ensure a hassle-free
-              experience and develop cost-effective logistics solutions for
-              transporting your valuables.
+              Krishna Freight Carrier operates a large fleet of trucks,
+              trailers, and ancillary vehicles ensuring safe delivery. With
+              regional offices across India, we offer affordable prices and
+              excellent service 24/7. We coordinate with you to ensure a
+              hassle-free experience and develop cost-effective logistics
+              solutions for transporting your valuables.
             </p>
             <p className="text-gray-600">
               We specialize in providing customized solutions tailored to your
@@ -113,34 +115,32 @@ const AboutUs: React.FC = () => {
             />
           </div>
           <div className="md:w-2/3 md:ml-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">
               Project & <span className="text-blue-700">ODC</span>
             </h1>
             <ul className="list-disc list-inside text-gray-600">
-              
-                Vishwakarma Transport offers services for the movement of ODC
-                and Projects across the country. Features include:
-                <ul className="list-disc list-inside ml-6 mt-2">
-                  <li className="mb-2">
-                    Capacity to handle projects of size 75 to 100 TONNES through
-                    specialized vehicles and hydraulic axles.
-                  </li>
-                  <li className="mb-2">
-                    Movement of import/export containers from ports to various
-                    locations.
-                  </li>
-                  <li className="mb-2">
-                    Expertise in handling ODC, machinery & equipment, etc.
-                  </li>
-                  <li className="mb-2">
-                    Project transportation of entire plant and machinery.
-                  </li>
-                  <li>
-                    Specialized route service prior to the movement of
-                    consignments.
-                  </li>
-                </ul>
-             
+              Krishna Freight Carrier offers services for the movement of ODC
+              and Projects across the country. Features include:
+              <ul className="list-disc list-inside ml-6 mt-2">
+                <li className="mb-2">
+                  Capacity to handle projects of size 75 to 100 TONNES through
+                  specialized vehicles and hydraulic axles.
+                </li>
+                <li className="mb-2">
+                  Movement of import/export containers from ports to various
+                  locations.
+                </li>
+                <li className="mb-2">
+                  Expertise in handling ODC, machinery & equipment, etc.
+                </li>
+                <li className="mb-2">
+                  Project transportation of entire plant and machinery.
+                </li>
+                <li>
+                  Specialized route service prior to the movement of
+                  consignments.
+                </li>
+              </ul>
             </ul>
           </div>
         </section>
