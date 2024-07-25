@@ -1,6 +1,5 @@
 "use client";
 import { StickyScroll } from "./sticky-scroll-reveal";
-// import Image from "next/image";
 import truck1 from "../../images/trucks/Road_transportation_truck.webp";
 import truck2 from "../../images/trucks/Truck1.jpeg";
 import truck3 from "../../images/trucks/low_bed_truck.jpg";
