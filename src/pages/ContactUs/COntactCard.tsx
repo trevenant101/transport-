@@ -79,8 +79,8 @@ const TiltCard = () => {
             <strong>Email:</strong> bansalroadways1@gmail.com
           </p>
           <p className="text-base">
-            <strong>Address:</strong> 1000+ Travel partners and 65+ Service city
-            across India, USA, Canada & UAE
+            <strong>Address:</strong> Opposite Truck Union Office
+            Transport Nagar, Bhilwara, Rajasthan(311001)
           </p>
         </div>
       </div>

@@ -14,33 +14,43 @@ const ContactUs: React.FC = () => {
   const [form] = Form.useForm(); // Form instance reference
 
   const sendEmail = (values: any) => {
-    return emailjs.send('service_lpyuq89', 'template_drcmoya', values, 'e0jnCqVUt0x05ZcYk');
+    return emailjs.send(
+      "service_lpyuq89",
+      "template_drcmoya",
+      values,
+      "e0jnCqVUt0x05ZcYk"
+    );
   };
 
-  const handleSendEmail = (values: any, next: (success: boolean) => void): void => {
+  const handleSendEmail = (
+    values: any,
+    next: (success: boolean) => void
+  ): void => {
     if (isSending) return; // Prevent sending if already in progress
 
     setIsSending(true);
 
-    sendEmail(values).then(
-      () => {
-        notification.success({
-          message: 'Success',
-          description: 'Your message has been sent successfully!',
-        });
-        next(true); // Indicate success
-      },
-      () => {
-        notification.error({
-          message: 'Error',
-          description: 'There was an error sending your message.',
-        });
-        next(false); // Indicate failure
-      }
-    ).finally(() => {
-      setIsSending(false);
-      form.resetFields(); // Clear the form fields
-    });
+    sendEmail(values)
+      .then(
+        () => {
+          notification.success({
+            message: "Success",
+            description: "Your message has been sent successfully!",
+          });
+          next(true); // Indicate success
+        },
+        () => {
+          notification.error({
+            message: "Error",
+            description: "There was an error sending your message.",
+          });
+          next(false); // Indicate failure
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+        form.resetFields(); // Clear the form fields
+      });
   };
 
   return (
@@ -72,10 +82,25 @@ const ContactUs: React.FC = () => {
                     label="Email"
                     rules={[
                       { required: true, message: "Please input your email!" },
-                      { type: 'email', message: 'The input is not a valid email!' },
+                      {
+                        type: "email",
+                        message: "The input is not a valid email!",
+                      },
                     ]}
                   >
                     <Input className="rounded-md" />
+                  </Form.Item>
+                  <Form.Item
+                    label="Phone Number"
+                    name="phoneNumber"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please enter the phone number",
+                      },
+                    ]}
+                  >
+                    <Input />
                   </Form.Item>
                   <Form.Item
                     name="message"
@@ -104,7 +129,7 @@ const ContactUs: React.FC = () => {
                               await validateFields();
                               handleSendEmail(values, next);
                             } catch (errorInfo) {
-                              console.log('Validation Failed:', errorInfo);
+                              console.log("Validation Failed:", errorInfo);
                               handleSendEmail(null, next); // Show error state
                             }
                           }}
@@ -127,7 +152,9 @@ const ContactUs: React.FC = () => {
       <section className="map_sec bg-gray-200 py-12">
         <div className="container mx-auto">
           <div className="map_inner text-center">
-            <h4 className="text-3xl font-semibold mb-4">Find Us on Google Map</h4>
+            <h4 className="text-3xl font-semibold mb-4">
+              Find Us on Google Map
+            </h4>
             <div className="map_bind rounded-lg overflow-hidden">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.549462228537!2d74.62736391459237!3d25.34829198380492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c82c20cbe73b7%3A0xd1545fb8a931b25b!2sBhilwara%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1644607480500"
