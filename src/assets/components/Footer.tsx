@@ -27,10 +27,11 @@ const Footer: React.FC = () => {
             {" "}
             <FaFacebook className="relative right-2 text-xl" /> Facebook
           </AwesomeButton>
-          <AwesomeButton type="whatsapp" ripple={true} className="w-40">
-            {" "}
-            <FaWhatsapp className="relative right-2 text-xl" /> Whatsapp
-          </AwesomeButton>
+          <a href="https://wa.me/7073755815">
+            <AwesomeButton type="whatsapp" ripple={true} className="w-40">
+              <FaWhatsapp className="relative right-2 text-xl" /> Whatsapp
+            </AwesomeButton>
+          </a>
         </div>
       </div>
       <div className="w-full md:w-1/4 mb-6 md:mb-0">
@@ -81,7 +82,7 @@ const Footer: React.FC = () => {
             href="mailto:vishwakarmatransport01@gmail.com"
             className="text-blue-500"
           >
-            Bansaltransport01@gmail.com
+            bansalroadways1@gmail.com
           </a>
         </p>
       </div>
