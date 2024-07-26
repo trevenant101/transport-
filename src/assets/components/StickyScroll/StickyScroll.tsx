@@ -11,7 +11,7 @@ const content = [
   {
     title: "ROAD TRANSPORTATION",
     description:
-      "At Krishna Freight Carrier, we offer logistic solutions by road from all major cities across India. With its dedication and prolonged investment in the industry Vishwakarma Transport holds its branches across India. Today we are proud to declare that we have good number of vehicles with trained drivers. We own forklifts, cranes and material handling equipment. We offer 24X7 logistic solutions and freight services",
+      "At Krishna Freight Carrier, we offer logistic solutions by road from all major cities across India.Today we are proud to declare that we have good number of vehicles with trained drivers. We own forklifts, cranes and material handling equipment. We offer 24X7 logistic solutions and freight services",
     content: (
       <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
         <img src={truck1}></img>
